@@ -2,5 +2,20 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-	<h1>{{ user.username }}</h1>
+	<!-- FROM CODE SNIPPET -->
+	<!-- LINK: https://github.com/CoreyMSchafer/code_snippets/blob/master/Django_Blog/snippets/profile.html -->
+
+	<div class="content-section">
+		<div class="media">
+			<img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+			<div class="media-body">
+				<h2 class="account-heading">{{ user.username }}</h2>
+				<p class="text-secondary">{{ user.email }}</p>
+			</div>
+		</div>
+		<!-- FORM HERE -->
+	</div>
+
+	<!-- END OF CODE SNIPPET -->
+
 {% endblock %}
