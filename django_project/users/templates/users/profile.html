@@ -13,9 +13,22 @@
 				<p class="text-secondary">{{ user.email }}</p>
 			</div>
 		</div>
-		<!-- FORM HERE -->
+		<form method="POST" enctype="multipart/form-data">
+			{% csrf_token %}
+			<fieldset class="form-group">
+				<legend class="border-bottom mb-4">Profile Info</legend>
+				{{ u_form|crispy }}
+				{{ p_form|crispy }}
+			</fieldset>
+			<div class="form-group">
+				<button class="btn btn-outline-info" type="submit">Update</button>
+			</div>
+		</form>
 	</div>
 
 	<!-- END OF CODE SNIPPET -->
 
+	<!-- quick fix for fixing a layout issue with the image in p_form and bootstrap4 setting for crispy forms. 
+		Might be a more elegant solution available somewhere. This was found within the comment section of the video tutorial part 9. -->
+	<script>document.querySelector(".custom-file-label").className += " mt-4"</script> 
 {% endblock %}
